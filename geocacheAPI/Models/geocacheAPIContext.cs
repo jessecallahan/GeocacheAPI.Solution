@@ -2,13 +2,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace geocacheAPI.Models
 {
-    public class geocacheAPIContext : DbContext
-    {
-        public geocacheAPIContext(DbContextOptions<geocacheAPIContext> options)
-            : base(options)
-        {
-        }
+  public class geocacheAPIContext : DbContext
+  {
+    public virtual DbSet<Geocache> Geocaches { get; set; }
+    public  DbSet<Item> Items { get; set; }
+  
+    public geocacheAPIContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Item> Items { get; set; }
-    }
+//  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//     {
+//       optionsBuilder.UseLazyLoadingProxies();
+//     }
+
+  }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,6 +12,7 @@ namespace geocacheAPI.Controllers
   [ApiController]
   public class ItemsController : ControllerBase
   {
+       
     private readonly geocacheAPIContext _db;
 
     public ItemsController(geocacheAPIContext db)
@@ -45,16 +45,21 @@ namespace geocacheAPI.Controllers
     [HttpPost]
     public async Task<ActionResult<Item>> Post(Item item)
     {
-      _db.Items.Add(item);
+     var thing = Get();
+      
+      
+//check uniquness 
+//check if 3 active 
+//then let post 
+ _db.Items.Add(item);
       await _db.SaveChangesAsync();
-
-      return CreatedAtAction(nameof(GetItem), new { id = item.ItemId }, item);
+      return CreatedAtAction(nameof(GetItem), new { id = item.Id }, item);
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Item item)
     {
-      if (id != item.ItemId)
+      if (id != item.Id)
       {
         return BadRequest();
       }
@@ -82,8 +87,11 @@ namespace geocacheAPI.Controllers
 
     private bool ItemExists(int id, string name)
     {
-      return _db.Items.Any(e => e.ItemId == id || e.Name == name);
+      return _db.Items.Any(e => e.Id == id || e.Name == name);
     }
   }
+
+
+  
 }
 
