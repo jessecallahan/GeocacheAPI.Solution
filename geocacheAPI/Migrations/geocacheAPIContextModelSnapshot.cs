@@ -49,7 +49,8 @@ namespace geocacheAPI.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4");
 
                     b.Property<string>("StartDate")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");

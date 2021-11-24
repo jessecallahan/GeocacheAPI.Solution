@@ -8,8 +8,8 @@ using geocacheAPI.Models;
 namespace geocacheAPI.Migrations
 {
     [DbContext(typeof(geocacheAPIContext))]
-    [Migration("20211121235134_geocacheInitial1")]
-    partial class geocacheInitial1
+    [Migration("20211124025642_geocacheStart")]
+    partial class geocacheStart
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace geocacheAPI.Migrations
 
             modelBuilder.Entity("geocacheAPI.Models.Geocache", b =>
                 {
-                    b.Property<int>("GeocacheId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -30,14 +30,14 @@ namespace geocacheAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.HasKey("GeocacheId");
+                    b.HasKey("Id");
 
                     b.ToTable("Geocaches");
                 });
 
             modelBuilder.Entity("geocacheAPI.Models.Item", b =>
                 {
-                    b.Property<int>("ItemId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -51,12 +51,13 @@ namespace geocacheAPI.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4");
 
                     b.Property<string>("StartDate")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.HasKey("ItemId");
+                    b.HasKey("Id");
 
                     b.HasIndex("GeocacheId");
 
