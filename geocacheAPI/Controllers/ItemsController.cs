@@ -3,19 +3,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using geocacheAPI.Models;
+using GeocacheAPI.Models;
 using System;
 
-namespace geocacheAPI.Controllers
+namespace GeocacheAPI.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
   public class ItemsController : ControllerBase
   {
-       
-    private readonly geocacheAPIContext _db;
+    private readonly GeocacheAPIContext _db;
 
-    public ItemsController(geocacheAPIContext db)
+    public ItemsController(GeocacheAPIContext db)
     {
       _db = db;
     }
@@ -31,12 +30,12 @@ namespace geocacheAPI.Controllers
     [HttpGet("{id}")]
     public async Task<ActionResult<Item>> GetItem(int id)
     {
-    var item = await _db.Items.FindAsync(id);
+      var item = await _db.Items.FindAsync(id);
 
       if (item == null)
-        {
-          return NotFound();
-        }
+      {
+        return NotFound();
+      }
 
       return item;
     }
@@ -46,27 +45,57 @@ namespace geocacheAPI.Controllers
     public async Task<ActionResult<Item>> Post(Item item)
     {
 
-        if (nameCheck(item.Name)) {
-      return new BadRequestObjectResult("name the same");
-    } 
-     if (checkActiveList(item.GeocacheId)){
-      return new BadRequestObjectResult("more then 3 active items in this geocache");
+      if (nameCheck(item.Name))
+      {
+        return new BadRequestObjectResult("name the same");
+      }
+      if (checkActiveListforThrees(item))
+      {
+        return new BadRequestObjectResult("more then 3 active items in this geocache");
       }
       _db.Items.Add(item);
+
+      if (item.IsActive)
+      {
+        item.StartDate = DateTime.Now;
+        item.EndDate = default;
+      }
+      else
+      {
+        item.StartDate = default;
+        item.EndDate = DateTime.Now;
+      }
       await _db.SaveChangesAsync();
       return CreatedAtAction(nameof(GetItem), new { id = item.Id }, item);
 
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, Item item)
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> Patch(int id, Item item)
     {
       if (id != item.Id)
       {
         return BadRequest();
       }
+      if (checkActiveListforThrees(item))
+      {
+        return new BadRequestObjectResult("more then 3 active items in this geocache");
+      }
+      Item serverItem = await _db.Items.FindAsync(id);
 
-      _db.Entry(item).State = EntityState.Modified;
+      serverItem.Name = item.Name;
+      serverItem.GeocacheId = item.GeocacheId;
+
+      if (!item.IsActive && serverItem.IsActive)
+      {
+        serverItem.EndDate = DateTime.Now;
+      }
+      if (!serverItem.IsActive && item.IsActive)
+      {
+        serverItem.StartDate = DateTime.Now;
+        serverItem.EndDate = default;
+      }
+      serverItem.IsActive = item.IsActive;
 
       try
       {
@@ -92,27 +121,28 @@ namespace geocacheAPI.Controllers
       return _db.Items.Any(e => e.Id == id);
     }
 
-     private bool checkActiveList(int geocacheId)
+    private bool checkActiveListforThrees(Item item)
     {
-  var geocacheIdQuery = from n in _db.Items
-                  where n.IsActive & n.GeocacheId == geocacheId 
-                  select n;
-  int count = geocacheIdQuery.Count();
-    Console.WriteLine(count);
-      if (count > 2) {
+      var geocacheIdQuery = from n in _db.Items
+                            where n.IsActive & n.GeocacheId == item.GeocacheId & n.Id != item.Id
+                            select n;
+      int count = geocacheIdQuery.Count();
+
+      if (count >= 3)
+      {
         return true;
-      } else {
+      }
+      else
+      {
         return false;
       }
     }
 
-     private bool nameCheck(string name)
+    private bool nameCheck(string name)
     {
       return _db.Items.Any(e => e.Name == name);
     }
   }
 
-
-  
 }
 

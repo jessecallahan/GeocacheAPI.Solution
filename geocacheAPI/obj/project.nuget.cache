@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XlJ3sdPmMGn5KpHeYQeupfLnOd9VJ59D/KBCAXnAv0alT2/WT0SOGjluQuLI33s6H5p2hC9YlQcskkSmzDKqPA==",
+  "dgSpecHash": "VhPc3lVvGhKSsIyqiOtlRcEeEg6cEGTzfMCU0+KevDKdqHl/shTO73tA/kcMJD6w+kYyCF1FKT/0pfi3+9uDUQ==",
   "success": true,
-  "projectFilePath": "/Users/jcallahan/Desktop/geocacheAPI.Solution/geocacheAPI/geocacheAPI.csproj",
+  "projectFilePath": "/Users/jcallahan/Desktop/geocacheAPI.Solution/GeocacheAPI/geocacheAPI.csproj",
   "expectedPackageFiles": [
     "/Users/jcallahan/.nuget/packages/castle.core/4.4.1/castle.core.4.4.1.nupkg.sha512",
     "/Users/jcallahan/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",

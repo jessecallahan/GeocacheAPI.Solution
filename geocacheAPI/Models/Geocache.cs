@@ -1,18 +1,14 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
-namespace geocacheAPI.Models
+namespace GeocacheAPI.Models
 {
-  public class Geocache 
+  public class Geocache
   {
-    //  public Geocache()
-    // {
-    //   this.Items = new HashSet<Item>();
-    // }
 
     public int Id { get; set; }
     public string Name { get; set; }
-    public string Coordinate { get; set; }
+    public double Lat { get; set; }
+    public double Lng { get; set; }
     public virtual ICollection<Item> Items { get; set; }
   }
 }

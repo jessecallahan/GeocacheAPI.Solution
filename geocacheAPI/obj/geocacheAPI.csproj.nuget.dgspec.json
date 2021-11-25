@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jcallahan/Desktop/geocacheAPI.Solution/geocacheAPI/geocacheAPI.csproj": {}
+    "/Users/jcallahan/Desktop/geocacheAPI.Solution/GeocacheAPI/geocacheAPI.csproj": {}
   },
   "projects": {
-    "/Users/jcallahan/Desktop/geocacheAPI.Solution/geocacheAPI/geocacheAPI.csproj": {
+    "/Users/jcallahan/Desktop/geocacheAPI.Solution/GeocacheAPI/geocacheAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jcallahan/Desktop/geocacheAPI.Solution/geocacheAPI/geocacheAPI.csproj",
+        "projectUniqueName": "/Users/jcallahan/Desktop/geocacheAPI.Solution/GeocacheAPI/geocacheAPI.csproj",
         "projectName": "geocacheAPI",
-        "projectPath": "/Users/jcallahan/Desktop/geocacheAPI.Solution/geocacheAPI/geocacheAPI.csproj",
+        "projectPath": "/Users/jcallahan/Desktop/geocacheAPI.Solution/GeocacheAPI/geocacheAPI.csproj",
         "packagesPath": "/Users/jcallahan/.nuget/packages/",
-        "outputPath": "/Users/jcallahan/Desktop/geocacheAPI.Solution/geocacheAPI/obj/",
+        "outputPath": "/Users/jcallahan/Desktop/geocacheAPI.Solution/GeocacheAPI/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

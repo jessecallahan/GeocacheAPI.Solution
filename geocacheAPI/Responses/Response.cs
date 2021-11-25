@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace geocacheAPI.Responses
+namespace GeocacheAPI.Responses
 {
-    public class Response<T>
+  public class Response<T>
+  {
+    public Response(IEnumerable<T> results = null)
     {
-        public Response(IEnumerable<T> results = null)
-        {
-            Results = results ?? Array.Empty<T>();
-        }
-        
-        public IEnumerable<T> Results { get; set; }
+      Results = results ?? Array.Empty<T>();
     }
+
+    public IEnumerable<T> Results { get; set; }
+  }
 }

@@ -3,78 +3,76 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using geocacheAPI.Models;
-using geocacheAPI.Responses;
+using GeocacheAPI.Models;
+using GeocacheAPI.Responses;
 
-namespace geocacheAPI.Controllers
+namespace GeocacheAPI.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
   public class GeocachesController : ControllerBase
   {
-    private readonly geocacheAPIContext _db;
+    private readonly GeocacheAPIContext _db;
 
-    public GeocachesController(geocacheAPIContext db)
+    public GeocachesController(GeocacheAPIContext db)
     {
       _db = db;
     }
 
     // GET api/geocaches
     [HttpGet]
-  public async Task<Response<GeocacheResponse>> Wrapper()
-{
-    // still using LINQ projection,
-    // but now using strongly-typed models.
-    //
-    // this allows for reuse and a better understanding
-    // of our responses.
-    // 
-    // By using a Response<T> model, we can add additional
-    // metadata as well, like stats (i.e. total count, pages, cursor, etc.)
-    var result = await _db
-        .Geocaches
-        .Select(c => new GeocacheResponse
-        {
+    public async Task<Response<GeocacheResponse>> Wrapper()
+    {
+
+      var result = await _db
+          .Geocaches
+          .Select(c => new GeocacheResponse
+          {
             Id = c.Id,
             Name = c.Name,
-            Coordinate = c.Coordinate,
+            Lat = c.Lat,
+            Lng = c.Lng,
             Items = c
-                .Items
-                .Select(e =>
-                new ItemResponse {
+                  .Items
+                  .Select(e =>
+                  new ItemResponse
+                  {
                     Id = e.Id,
                     Name = e.Name,
-                    IsActive = e.IsActive 
-                }).Where(
-                  e => e.IsActive
-                )
-        }).ToListAsync();
+                    IsActive = e.IsActive,
+                    StartDate = e.StartDate,
+                    EndDate = e.EndDate
+                  }).Where(
+                    e => e.IsActive
+                  )
+          }).ToListAsync();
 
-    
 
-    return new Response<GeocacheResponse>(result);
-}
+
+      return new Response<GeocacheResponse>(result);
+    }
 
 
     // GET: api/geocaches/5
     [HttpGet("{id}")]
-   public async Task<ActionResult> GetGeocache(int id)
-{
-    var geocache = await _db.Geocaches.Include(b => b.Items).Select(b =>
-        new Geocache()
-        {
-              Id = b.Id,
-            Name = b.Name,
-            Coordinate = b.Coordinate,
-            Items = b.Items
-        }).SingleOrDefaultAsync(b => b.Id == id);
-    if (geocache == null)
+    public async Task<ActionResult> GetGeocache(int id)
     {
+      var geocache = await _db.Geocaches.Include(b => b.Items).Select(b =>
+          new Geocache()
+          {
+            Id = b.Id,
+            Name = b.Name,
+            Lat = b.Lat,
+            Lng = b.Lng,
+            Items = b.Items
+          }).SingleOrDefaultAsync(b => b.Id == id);
+      if (geocache == null)
+      {
         return NotFound();
-    }
+      }
 
-    return Ok(geocache);
-}
+      return Ok(geocache);
+    }
 
     // POST api/Geocaches
     [HttpPost]
@@ -88,6 +86,4 @@ namespace geocacheAPI.Controllers
 
   }
 
-
-  
 }

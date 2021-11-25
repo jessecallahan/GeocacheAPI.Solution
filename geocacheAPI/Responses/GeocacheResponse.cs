@@ -1,23 +1,23 @@
 using System;
 using System.Collections.Generic;
 
-namespace geocacheAPI.Responses
+namespace GeocacheAPI.Responses
 {
-    public class GeocacheResponse
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Coordinate { get; set; }
-        public IEnumerable<ItemResponse> Items { get; set; } 
-            // = Array.Empty<ItemResponse>();
-    }
+  public class GeocacheResponse
+  {
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public double Lat { get; set; }
+    public double Lng { get; set; }
+    public IEnumerable<ItemResponse> Items { get; set; }
+  }
 
-    public class ItemResponse
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-          public bool IsActive { get; set; }
-        public string StartDate { get; set; }
-        public string EndDate { get; set; }
-    }
+  public class ItemResponse
+  {
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public bool IsActive { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
+  }
 }
