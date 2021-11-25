@@ -47,11 +47,8 @@ namespace GeocacheAPI.Controllers
                   )
           }).ToListAsync();
 
-
-
       return new Response<GeocacheResponse>(result);
     }
-
 
     // GET: api/geocaches/5
     [HttpGet("{id}")]
@@ -84,6 +81,23 @@ namespace GeocacheAPI.Controllers
       return CreatedAtAction(nameof(GetGeocache), new { id = geocache.Id }, geocache);
     }
 
-  }
+    // DELETE: api/geocaches/5
+    [Route("{id:int}")]
+    [AcceptVerbs("DELETE")]
+    public async Task<IActionResult> DeleteGeocache(int id)
+    {
 
+      Geocache geocache = await _db.Geocaches.FindAsync(id);
+      if (geocache == null)
+      {
+        return NotFound();
+      }
+
+      _db.Geocaches.Remove(geocache);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
+    }
+
+  }
 }

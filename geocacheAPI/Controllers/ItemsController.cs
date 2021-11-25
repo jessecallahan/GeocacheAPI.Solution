@@ -26,6 +26,14 @@ namespace GeocacheAPI.Controllers
       return await _db.Items.ToListAsync();
     }
 
+    // GET api/items/inactive
+    [HttpGet("inactive/")]
+    public async Task<ActionResult<IEnumerable<Item>>> GetInactive()
+    {
+      var result = await _db.Items.Where(x => x.IsActive == false).ToListAsync();
+      return result;
+    }
+
     // GET: api/Items/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Item>> GetItem(int id)
@@ -70,6 +78,7 @@ namespace GeocacheAPI.Controllers
 
     }
 
+    // PATCH: api/Items/5
     [HttpPatch("{id}")]
     public async Task<IActionResult> Patch(int id, Item item)
     {
@@ -83,8 +92,8 @@ namespace GeocacheAPI.Controllers
       }
       Item serverItem = await _db.Items.FindAsync(id);
 
-      serverItem.Name = item.Name;
-      serverItem.GeocacheId = item.GeocacheId;
+      changeName(serverItem, item);
+      changeLocation(serverItem, item);
 
       if (!item.IsActive && serverItem.IsActive)
       {
@@ -95,7 +104,8 @@ namespace GeocacheAPI.Controllers
         serverItem.StartDate = DateTime.Now;
         serverItem.EndDate = default;
       }
-      serverItem.IsActive = item.IsActive;
+
+      changeActiveStatus(serverItem, item);
 
       try
       {
@@ -116,6 +126,25 @@ namespace GeocacheAPI.Controllers
       return NoContent();
     }
 
+    // DELETE: api/items/5
+    [Route("{id:int}")]
+    [AcceptVerbs("DELETE")]
+    public async Task<IActionResult> DeleteItem(int id)
+    {
+      System.Console.WriteLine(id);
+      Item item = await _db.Items.FindAsync(id);
+      if (item == null)
+      {
+        return NotFound();
+      }
+
+      _db.Items.Remove(item);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
+    }
+
+    // error handlers
     private bool ItemExists(int id)
     {
       return _db.Items.Any(e => e.Id == id);
@@ -141,6 +170,21 @@ namespace GeocacheAPI.Controllers
     private bool nameCheck(string name)
     {
       return _db.Items.Any(e => e.Name == name);
+    }
+    //setters/mutators
+    private bool changeActiveStatus(Item prevItem, Item currItem)
+    {
+      return prevItem.IsActive = currItem.IsActive;
+    }
+
+    private int changeLocation(Item prevItem, Item currItem)
+    {
+      return prevItem.GeocacheId = currItem.GeocacheId;
+    }
+
+    private string changeName(Item prevItem, Item currItem)
+    {
+      return prevItem.Name = currItem.Name;
     }
   }
 
