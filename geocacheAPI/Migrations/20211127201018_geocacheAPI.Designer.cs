@@ -3,14 +3,16 @@ using System;
 using GeocacheAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace geocacheAPI.Migrations
 {
     [DbContext(typeof(GeocacheAPIContext))]
-    partial class GeocacheAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20211127201018_geocacheAPI")]
+    partial class geocacheAPI
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

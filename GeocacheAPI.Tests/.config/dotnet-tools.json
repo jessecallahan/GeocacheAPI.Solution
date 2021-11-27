@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "xunit-cli": {
+      "version": "0.1.14",
+      "commands": [
+        "xunit"
+      ]
+    }
+  }
+}
