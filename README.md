@@ -25,7 +25,7 @@ This application simulates the enormously popular Geocache game.
 <img src="./geocacheAPI/wwwroot/images/readme2.png" alt="list of get geocache" width="500"/>
 
 ### ADD AN ACTIVE ITEM TO A GEOCACHE LOCATION (ONLY THREE ACTIVE ITEMS PER LOCATION)
-### POST /api/Items/2
+### POST /api/Items/8
 
 <p>
 <img src="./geocacheAPI/wwwroot/images/readme3.png" alt="post new item" width="300"/>
@@ -33,12 +33,14 @@ This application simulates the enormously popular Geocache game.
 </p>
 
 ### MOVE AN ITEM TO NEW LOCATION 
-### PATCH /api/Items/3
+### PATCH /api/Items/8
+Make sure to add item id to url bar and add which Geocache Id you want to switch into
 
 <p>
 <img src="./geocacheAPI/wwwroot/images/readme5.png" alt="patch geocache id" width="500"/>
 <img src="./geocacheAPI/wwwroot/images/readme6.png" alt="list of get geocache" width="300"/>
 </p>
+
 ### GET LIST OF ALL ITEMS
 ### GET /api/Items/
 
