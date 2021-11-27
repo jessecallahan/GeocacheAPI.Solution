@@ -35,7 +35,7 @@ This application simulates the enormously popular Geocache game.
 
 ### MOVE AN ITEM TO NEW LOCATION 
 ### PATCH /api/Items/8
-Make sure to add item id to url bar and add which Geocache Id you want to switch into
+Make sure to add item id to url bar and add which Geocache Id you want to switch into. You should get a 204 Response if done successfully.
 
 <p>
 <img src="./geocacheAPI/wwwroot/images/readme5.png" alt="patch geocache id" width="500"/>
