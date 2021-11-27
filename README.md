@@ -27,15 +27,18 @@ This application simulates the enormously popular Geocache game.
 ### ADD AN ACTIVE ITEM TO A GEOCACHE LOCATION (ONLY THREE ACTIVE ITEMS PER LOCATION)
 ### POST /api/Items/2
 
+<p>
 <img src="./geocacheAPI/wwwroot/images/readme3.png" alt="post new item" width="300"/>
 <img src="./geocacheAPI/wwwroot/images/readme4.png" alt="list of get geocache" width="300"/>
+</p>
 
 ### MOVE AN ITEM TO NEW LOCATION 
 ### PATCH /api/Items/3
 
-<img src="./geocacheAPI/wwwroot/images/readme5.png" alt="patch geocache id" width="300"/>
+<p>
+<img src="./geocacheAPI/wwwroot/images/readme5.png" alt="patch geocache id" width="500"/>
 <img src="./geocacheAPI/wwwroot/images/readme6.png" alt="list of get geocache" width="300"/>
-
+</p>
 ### GET LIST OF ALL ITEMS
 ### GET /api/Items/
 
