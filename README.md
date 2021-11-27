@@ -5,9 +5,9 @@ Contact: _**Jessetylercallahan@gmail.com**_</br>
 
 ## Setup/Installation Instructions
 
-1. Clone [repository](https://github.com/jessecallahan/GeocacheAPI.Solution)
+1. Clone repository
 2. Navigate to the 'GeocacheAPI' folder in your terminal use the command 'dotnet restore' to load boilerplate.
-3. Run the command 'dotnet ef database update' to run the SQLite database migration. 
+3. Use the command 'dotnet ef database update' to run the SQLite database migration. 
 4. Use command 'dotnet run' in your terminal to run server
 5. Copy the local host 5000 server link into Postman or perferred API testing platform, copy 'http://localhost:5000/swagger/index.html' into your broswer url bar to test API with swagger
 
@@ -24,7 +24,8 @@ This application simulates the enormously popular Geocache game.
 
 <img src="./geocacheAPI/wwwroot/images/readme2.png" alt="list of get geocache" width="500"/>
 
-### ADD AN ACTIVE ITEM TO A GEOCACHE LOCATION (ONLY THREE ACTIVE ITEMS PER LOCATION)
+### ADD AN ACTIVE ITEM TO A GEOCACHE LOCATION 
+### (ONLY THREE ACTIVE ITEMS PER LOCATION)
 ### POST /api/Items/8
 
 <p>
@@ -55,7 +56,7 @@ Full swagger documentation can found below.
 
 ## Specs
 
-![image info](./AnimalShelter/wwwroot/images/crud.png)
+![swagger](./geocacheAPI/wwwroot/images/swagger.png)
 
 Visit the swagger docs website [here](https://app.swaggerhub.com/apis/jessetylercallahan/geocache-api/1.0#/)
 
@@ -63,6 +64,7 @@ This is more of a static version of documentation. If you want to interact with 
 
 One-to-many database relationship:
 
+![schema](./geocacheAPI/wwwroot/images/schema.png)
 
 ## Technologies Used
 * C#
