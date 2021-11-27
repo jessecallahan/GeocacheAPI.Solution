@@ -1,5 +1,7 @@
 # Geocache API
-https://github.com/jessecallahan/GeocacheAPI.Solution
+Created 11.26.21</br>
+By _**Jesse Callahan**_</br>
+Contact: _**Jessetylercallahan@gmail.com**_</br>
 
 ## Setup/Installation Instructions
 
@@ -12,26 +14,37 @@ https://github.com/jessecallahan/GeocacheAPI.Solution
 ## Description
 This application simulates the enormously popular Geocache game. 
 
-GET A LIST OF GEOCACHE LOCATIONS AND ACTIVE ITEMS
-GET /api/Geocaches/
+### GET A LIST OF GEOCACHE LOCATIONS AND ACTIVE ITEMS
+### GET /api/Geocaches/
 
-![image info]()
-<img src="./geocacheAPI/wwwroot/images/readme1.png" alt="drawing" width="500"/>
+<img src="./geocacheAPI/wwwroot/images/readme1.png" alt="list of get geocache" width="500"/>
 
-ADD A GEOCACHE LOCATION 
-POST /api/Geocaches/
+### ADD A GEOCACHE LOCATION 
+### POST /api/Geocaches/
 
-ADD AN ACTIVE ITEM TO A GEOCACHE LOCATION (ONLY THREE ACTIVE ITEMS PER LOCATION)
-POST /api/Items/2
+<img src="./geocacheAPI/wwwroot/images/readme2.png" alt="list of get geocache" width="500"/>
 
-MOVE AN ITEM TO NEW LOCATION 
-PATCH /api/Items/3
+### ADD AN ACTIVE ITEM TO A GEOCACHE LOCATION (ONLY THREE ACTIVE ITEMS PER LOCATION)
+### POST /api/Items/2
 
-GET LIST OF ALL ITEMS
-GET /api/Items/
+<img src="./geocacheAPI/wwwroot/images/readme3.png" alt="post new item" width="500"/>
+<img src="./geocacheAPI/wwwroot/images/readme4.png" alt="list of get geocache" width="500"/>
 
-GET LIST OF INACTIVE ITEMS
-GET /api/Items/inactive
+### MOVE AN ITEM TO NEW LOCATION 
+### PATCH /api/Items/3
+
+<img src="./geocacheAPI/wwwroot/images/readme5.png" alt="patch geocache id" width="500"/>
+<img src="./geocacheAPI/wwwroot/images/readme6.png" alt="list of get geocache" width="500"/>
+
+### GET LIST OF ALL ITEMS
+### GET /api/Items/
+
+<img src="./geocacheAPI/wwwroot/images/readme7.png" alt="list of get items" width="500"/>
+
+### GET LIST OF INACTIVE ITEMS
+### GET /api/Items/inactive
+
+<img src="./geocacheAPI/wwwroot/images/readme8.png" alt="list of get inactive items" width="500"/>
 
 Full swagger documentation can found below.
 
@@ -54,6 +67,4 @@ One-to-many database relationship:
 * LINQ
 * .NET Asp Core
 
-Created 11.26.21</br>
-By _**Jesse Callahan**_</br>
-Contact: _**Jessetylercallahan@gmail.com**_</br>
+
