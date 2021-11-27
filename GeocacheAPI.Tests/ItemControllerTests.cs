@@ -1,6 +1,4 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
 using GeocacheAPI.Models;
 
 namespace BankTests
