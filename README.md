@@ -16,7 +16,7 @@ GET A LIST OF GEOCACHE LOCATIONS AND ACTIVE ITEMS
 GET /api/Geocaches/
 
 ![image info]()
-<img src="./geocacheAPI/wwwroot/images/readme1.png" alt="drawing" width="200"/>
+<img src="./geocacheAPI/wwwroot/images/readme1.png" alt="drawing" width="500"/>
 
 ADD A GEOCACHE LOCATION 
 POST /api/Geocaches/
