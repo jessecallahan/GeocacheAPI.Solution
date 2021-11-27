@@ -15,7 +15,7 @@ This application simulates the enormously popular Geocache game.
 GET A LIST OF GEOCACHE LOCATIONS AND ACTIVE ITEMS
 GET /api/Geocaches/
 
-![image info](./GeocacheAPI/wwwroot/images/readme1.png)
+![image info](./geocacheAPI/wwwroot/images/readme1.png)
 
 ADD A GEOCACHE LOCATION 
 POST /api/Geocaches/
