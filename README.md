@@ -7,7 +7,7 @@ Contact: _**Jessetylercallahan@gmail.com**_</br>
 
 1. Clone repository
 2. Navigate to the /GeocacheAPI directory in your terminal use the command 'dotnet restore' to load boilerplate
-3. Use the command 'dotnet ef database update' to run the SQLite database migration.
+3. Use the command 'dotnet ef database update' to run the SQLite database migration
 4. Use command 'dotnet run' in your terminal to run server
 5. Copy the local host 5000 server link into Postman or perferred API testing platform, copy 'http://localhost:5000/swagger/index.html' into your broswer url bar to test API with swagger
 
