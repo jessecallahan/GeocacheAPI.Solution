@@ -9,24 +9,24 @@ Contact: _**Jessetylercallahan@gmail.com**_</br>
 2. Navigate to the /GeocacheAPI directory in your terminal use the command 'dotnet restore' to load boilerplate
 3. Use the command 'dotnet ef database update' to run the SQLite database migration
 4. Use command 'dotnet run' in your terminal to run server
-5. Copy the local host 5000 server link into Postman or perferred API testing platform, copy 'http://localhost:5000/swagger/index.html' into your broswer url bar to test API with swagger
+5. Copy the local host 5000 server link into Postman or perferred API testing platform or copy 'http://localhost:5000/swagger/index.html' into your broswer url bar to test API with swagger
 
 ## Description
 This application simulates the enormously popular Geocache game. 
 
 ### GET A LIST OF GEOCACHE LOCATIONS AND ACTIVE ITEMS
-### GET /api/Geocaches/
+### GET /api/geocaches/
 
 <img src="./geocacheAPI/wwwroot/images/readme1.png" alt="list of get geocache" width="500"/>
 
 ### ADD A GEOCACHE LOCATION 
-### POST /api/Geocaches/
+### POST /api/geocaches/
 
 <img src="./geocacheAPI/wwwroot/images/readme2.png" alt="list of get geocache" width="500"/>
 
 ### ADD AN ACTIVE ITEM TO A GEOCACHE LOCATION 
 ### (ONLY THREE ACTIVE ITEMS PER LOCATION)
-### POST /api/Items/8
+### POST /api/items/8
 
 <p>
 <img src="./geocacheAPI/wwwroot/images/readme3.png" alt="post new item" width="300"/>
@@ -34,7 +34,7 @@ This application simulates the enormously popular Geocache game.
 </p>
 
 ### MOVE AN ITEM TO NEW LOCATION 
-### PATCH /api/Items/8
+### PATCH /api/items/8
 Make sure to add item id to url bar and add which Geocache Id you want to switch into. You should get a 204 Response if done successfully.
 
 <p>
@@ -43,12 +43,12 @@ Make sure to add item id to url bar and add which Geocache Id you want to switch
 </p>
 
 ### GET LIST OF ALL ITEMS
-### GET /api/Items/
+### GET /api/items/
 
 <img src="./geocacheAPI/wwwroot/images/readme7.png" alt="list of get items" width="500"/>
 
 ### GET LIST OF INACTIVE ITEMS
-### GET /api/Items/inactive
+### GET /api/items/inactive
 
 <img src="./geocacheAPI/wwwroot/images/readme8.png" alt="list of get inactive items" width="500"/>
 

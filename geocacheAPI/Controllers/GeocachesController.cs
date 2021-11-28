@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +20,7 @@ namespace GeocacheAPI.Controllers
 
     // GET api/geocaches
     [HttpGet]
-    public async Task<Response<GeocacheResponse>> Wrapper()
+    public async Task<Response<GeocacheResponse>> Get()
     {
 
       var result = await _db
