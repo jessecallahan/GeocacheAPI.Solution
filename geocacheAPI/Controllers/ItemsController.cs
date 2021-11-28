@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GeocacheAPI.Models;
-using System;
+
 
 namespace GeocacheAPI.Controllers
 {
@@ -55,7 +56,7 @@ namespace GeocacheAPI.Controllers
 
       if (nameCheck(item.Name))
       {
-        return new BadRequestObjectResult("name the same");
+        return new BadRequestObjectResult("items must have unique names");
       }
       if (checkActiveListforThrees(item))
       {
@@ -169,8 +170,9 @@ namespace GeocacheAPI.Controllers
 
     private bool nameCheck(string name)
     {
-      return _db.Items.Any(e => e.Name == name);
+      return _db.Items.Any(e => e.Name.ToLower() == name.ToLower());
     }
+
     //setters/mutators
     private bool changeActiveStatus(Item prevItem, Item currItem)
     {

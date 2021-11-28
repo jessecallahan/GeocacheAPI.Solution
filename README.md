@@ -66,6 +66,11 @@ One-to-many database relationship:
 
 ![schema](./geocacheAPI/wwwroot/images/schema.png)
 
+## Tests
+
+1. Navigate to 'GeocacheAPI.Tests' folder and run 'dotnet restore' 
+2. Run 'dotnet test' to run tests
+
 ## Technologies Used
 * C#
 * SQLite
